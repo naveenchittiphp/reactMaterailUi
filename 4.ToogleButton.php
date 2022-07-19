@@ -37,3 +37,51 @@ we can access the buttons by the usestate
    formats is type of string array and add initial value [].
    
    
+we have to add value and onChange event to the tootle button group.
+             
+  when we change any button in button group that changes we track by onChange event.
+             
+             function handelFormatChange (_event: React.MouseEvent<HTMLElement>,updateFormats:string[]){
+        setFormats(updateFormats)
+    }
+             for this we willpass two aurgment 
+             1)_event: React.MouseEvent<HTMLElement>
+             2)updateFormats
+             
+             when we change the buttons we will get the list in "updateFormats"
+             now set this value to the formates values.
+             
+             <Stack  direction="row">
+            <ToggleButtonGroup aria-label="text formating" value={formats} onChange={handelFormatChange}>
+                <ToggleButton value="bold" aria-label="bold">
+                    <FormatBoldIcon />
+                </ToggleButton>
+                <ToggleButton value="italic" aria-label="italic">
+                    <FormatItalicIcon />
+                </ToggleButton>
+                <ToggleButton value="underlined" aria-label="underlined">
+                    <FormatUnderlinedIcon />
+                </ToggleButton>
+            </ToggleButtonGroup>
+        </Stack>
+             
+             Size And Color : 
+             ----------------
+             We can define the color and size to the toggle buttons.
+             
+              <ToggleButtonGroup  size="small" color="success">
+                          
+               Orentation :
+                ------------
+                           <ToggleButtonGroup orientation="vertical">
+                Restrict to single button:
+                 -------------------------
+                  we can restrict the user to click on single button by addng "exclusive"
+                                       
+                    for this we have to update the data storing to null insted of string[]
+                                       
+                                        const [formats,setFormats] = useState<string[] | null>(null);
+    console.log(formats);
+    function handelFormatChange (_event: React.MouseEvent<HTMLElement>,updateFormats:string[] | null){
+        setFormats(updateFormats)
+    }
