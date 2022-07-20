@@ -43,10 +43,34 @@ We can disble the text field by disabled property
 Readonly:
 ----------
 
+
 We can make the input field read only without disabling.
 
- <TextField  inputProps={{readOnly:true}}/>
+Adding Adorments :
+------------------------
+we can add adorments to the input field in prefixes and sufixes.
 
+InputProps={{
+            startAdornment: <InputAdornment position="start">$</InputAdornment>,
+          }}
+
+InputProps={{
+            startAdornment: <InputAdornment position="end">$</InputAdornment>,
+          }}
+
+
+<TextField label="Amount" InputProps={{
+            startAdornment: <InputAdornment position="start">$</InputAdornment>,
+          }}/>
+      <TextField  label="Weight" variant="outlined" InputProps={{
+            startAdornment: <InputAdornment position="start">kg</InputAdornment>,
+          }}/>
 
     
+States :
+----------
 
+We can add states to the field by adding error 
+
+ <TextField id="outlined-basic" label="Outlined" variant="outlined" value={value} onChange={(e) => setValue(e.target.value)}
+      error={!value} helperText={!value ? "Required" : "Donot share your password"} />
