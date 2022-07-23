@@ -69,3 +69,7 @@ we can add a spacing property by "spacing" property
             <Grid item sx={boxProperties} xs={12} sm={6}><Box>Item 4</Box></Grid>
         </Grid>
 
+Different Spacing:
+---------------
+We can define the spacing differently for the row and column 
+rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}
