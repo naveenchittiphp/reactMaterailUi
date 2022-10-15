@@ -112,3 +112,52 @@ Displaying title over image:
     </Box>
 
 we can display the title over the image by using 'ImageListItemBar'
+
+
+import * as React from 'react';
+import {Stack, ImageList,ImageListItem,Box,ImageListItemBar}from '@mui/material';
+
+
+const itemData = [
+    {
+      img: 'http://localhost/politiciansIndia/images/1.jpeg',
+      title: 'Breakfast',
+    },
+    {
+      img: 'http://localhost/politiciansIndia/images/1.jpeg',
+      title: 'Burger',
+    },
+    {
+      img: 'http://localhost/politiciansIndia/images/1.jpeg',
+      title: 'Camera',
+    },
+    {
+      img: 'http://localhost/politiciansIndia/images/1.jpeg',
+      title: 'Coffee',
+    }
+  ];
+
+
+export default function HomeImgBanner() {
+  return (<>
+  <Box >
+    <Stack spacing={4}>
+         <ImageList  cols={2} variant='masonry' gap={8}>
+      {itemData.map(({img,title}) => (
+        <ImageListItem key={img}>
+          <img
+            src={`${img}`}
+            srcSet={`${img}`}
+            alt={title}
+            loading="lazy"
+          />
+          <ImageListItemBar title={title} />
+        </ImageListItem>
+      ))}
+    </ImageList>
+    </Stack>
+    </Box>
+    </>);
+}
+
+
